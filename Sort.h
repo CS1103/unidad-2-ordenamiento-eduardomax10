@@ -1,14 +1,24 @@
-//
-// Created by rudri on 9/17/2019.
-//
+#ifndef PROJECT2_SORT_H
+#define PROJECT2_SORT_H
 
-#ifndef SORT_METHODS_SORT_H
-#define SORT_METHODS_SORT_H
+#include <vector>
 
+template <class T>
+class Sort
+{
+protected:
+    std::vector<T> *data_list_ptr;
 
-class Sort {
+public:
+    Sort() = default;
 
+    explicit Sort(std::vector<T>* data_list_ptr) : data_list_ptr{data_list_ptr} {};
+
+    void point_to(std::vector<T>* ptr)
+    {
+        data_list_ptr = ptr;
+    }
+
+    virtual std::vector<T> sort_data() = 0;
 };
-
-
-#endif //SORT_METHODS_SORT_H
+#endif //PROJECT2_SORT_H
